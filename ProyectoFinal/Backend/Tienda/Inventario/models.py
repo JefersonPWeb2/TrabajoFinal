@@ -8,4 +8,4 @@ class Producto(models.Model):
     descripcion = models.TextField()
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     cantidad = models.IntegerField()
-    precio = models.DecimalField(max_digits=10)
+    precio = models.DecimalField(max_digits=10, decimal_places=2)
