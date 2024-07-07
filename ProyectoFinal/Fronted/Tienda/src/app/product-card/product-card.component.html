@@ -1,1 +1,7 @@
-<p>product-card works!</p>
+<div class="product-card">
+    <img [src]="product.image" alt="{{ product.name }}" />
+    <div class="product-details">
+      <span *ngIf="product.new" class="new-label">NEW</span>
+      <h3>{{ product.name }}</h3>
+    </div>
+  </div>
