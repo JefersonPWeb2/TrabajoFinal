@@ -1,5 +1,6 @@
 from django import forms
 from .models import Producto
+from .models import Categoria
 
 class ProductoForm(forms.ModelForm):
     class Meta:
@@ -12,3 +13,7 @@ class ProductoForm(forms.ModelForm):
             'categoria': forms.Select(attrs={'class': 'form-control'}),
             'imagen': forms.ClearableFileInput(attrs={'class': 'form-control'}),
         }
+class CategoriaForm(forms.ModelForm):
+    class Meta:
+        model = Categoria
+        fields = ['nombre', 'descripcion']
