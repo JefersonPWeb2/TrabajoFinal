@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+  }
+  .product-grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .featured-image img {
+    width: 100%;
+    height: auto;
+  }
