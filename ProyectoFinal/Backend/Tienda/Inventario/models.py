@@ -9,3 +9,4 @@ class Producto(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     cantidad = models.IntegerField()
     precio = models.DecimalField(max_digits=10, decimal_places=2)
+    imagen = models.ImageField(upload_to='producto_images/', blank=True, null=True)
