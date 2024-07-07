@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalle del Producto{% endblock %}
+
+{% block content %}
+<h1>{{ producto.name }}</h1>
+<p>Precio: {{ producto.precio }}</p>
+<img src="{{ producto.image.url }}" alt="{{ producto.name }}">
+<a href="{% url 'producto_update' producto.pk %}" class="btn btn-warning">Editar</a>
+<form action="{% url 'producto_delete' producto.pk %}" method="post" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+</form>
+<a href="{% url 'producto_lista' %}" class="btn btn-secondary">Volver a la lista</a>
+{% endblock %}
