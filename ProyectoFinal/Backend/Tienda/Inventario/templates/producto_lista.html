@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listado de Productos</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Lista de Productos</h1>
+    <ul>
+        {% for producto in productos %}
+        <li>
+            <a href="{% url 'producto_detalle' producto.id %}">{{ producto.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'producto_create' %}">Agregar Producto</a>
+</body>
+</html>
