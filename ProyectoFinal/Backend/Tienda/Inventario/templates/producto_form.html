@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <h1>{% block title %}Formulario de Producto{% endblock %}</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
