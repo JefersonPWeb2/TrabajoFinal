@@ -1,0 +1,14 @@
+.product-card {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin: 1rem;
+    text-align: center;
+  }
+  .new-label {
+    background-color: red;
+    color: white;
+    padding: 0.2rem 0.5rem;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
