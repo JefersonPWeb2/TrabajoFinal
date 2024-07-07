@@ -1,10 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
-from .models import Producto
-from .forms import ProductoForm
+from .models import Producto, Categoria
+from .forms import ProductoForm, CategoriaForm
 from django.http import JsonResponse
 from .serializers import ProductoSerializer
 from rest_framework.decorators import api_view
+
 
 def producto_lista(request):
     productos = Producto.objects.all()
@@ -47,3 +48,17 @@ def producto_list_json(request):
     productos = Producto.objects.all()
     serializer = ProductoSerializer(productos, many=True)
     return JsonResponse(serializer.data, safe=False)
+
+def categoria_lista(request):
+    categorias = Categoria.objects.all()
+    return render(request, 'categoria_lista.html', {'categorias': categorias})
+
+def categoria_nueva(request):
+    if request.method == "POST":
+        form = CategoriaForm(request.POST)
+        if form.is_valid():
+            categoria = form.save()
+            return redirect('categoria_lista')
+    else:
+        form = CategoriaForm()
+    return render(request, 'categoria_editar.html', {'form': form})
