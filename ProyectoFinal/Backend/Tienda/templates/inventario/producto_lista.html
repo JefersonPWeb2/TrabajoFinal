@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Productos{% endblock %}
+
+{% block content %}
+<h1>Lista de Productos</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Descripcion</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for producto in productos %}
+        <tr>
+            <td>{{ producto.name }}</td>
+            <td>{{ producto.precio }}</td>
+            <td>{{ producto.descripcion }}</td>
+            <td>
+                <a href="{% url 'producto_detalle' producto.pk %}" class="btn btn-info">Ver</a>
+                <a href="{% url 'producto_update' producto.pk %}" class="btn btn-warning">Editar</a>
+                <form action="{% url 'producto_delete' producto.pk %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
