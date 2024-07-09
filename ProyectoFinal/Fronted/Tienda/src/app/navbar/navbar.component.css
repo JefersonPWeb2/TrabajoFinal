@@ -1,7 +1,77 @@
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #fff;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #a98787;
+  background-image: url('https://image.slidesdocs.com/responsive-images/background/marble-white-powerpoint-background_52b22a21a4__960_540.jpg');
+}
+
+.nav-logo {
+  width: 100px;
+  height: auto;
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+}
+
+nav div {
+  display: flex;
+  align-items: center;
+}
+
+nav button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.store-title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  font-family: 'Georgia', serif;
+  color: #333;
+  text-align: center;
+  margin: 0 1rem;
+}
+
+.store-rating {
+  font-size: 1.2rem;
+  color: #584141;
+}
+
+.store-rating {
+  display: inline-flex;
+  align-items: center;
+}
+
+.store-rating::before {
+  content: '⭐⭐⭐⭐⭐';
+  color: #000; 
+  margin-right: 5px;
+}
+
+.store-rating::after {
+  content: ' 4.9/5';
+  color: #000000; 
+}
+.store-sesion {
+  font-size: 1.0rem;
+  font-weight: bold;
+  font-family: 'Georgia', serif;
+  color: #333;
+  text-align: center;
+  margin: 0 1rem;
+}
