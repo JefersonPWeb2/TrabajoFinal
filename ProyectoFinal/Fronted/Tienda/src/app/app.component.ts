@@ -14,10 +14,10 @@ import { ProductCardComponent } from './product-card/product-card.component';
 export class AppComponent {
   title = 'abylu-store';
   products = [
-    { name: 'Cardigan Rayas', image: 'cardigan-rayas.png', new: true },
-    { name: 'Chaleco', image: 'chaleco.png', new: true },
-    { name: 'Chompa Offshoulder', image: 'chompa-offshoulder.png', new: true },
-    { name: 'Chompa Corazon', image: 'chompa-corazon.png', new: true },
-    { name: 'Falda Tableada Vane', image: 'falda-tableada-vane.png', new: true }
+    { name: 'Cardigan Rayas', image: 'https://home.ripley.com.pe/Attachment/WOP_5/2058333337216/2058333337216_2.jpg', new: true },
+    { name: 'Chaleco', image: 'https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaPE/124018906_01/w=1500,h=1500,fit=pad', new: true },
+    { name: 'Chompa Offshoulder', image: 'https://hmperu.vtexassets.com/arquivos/ids/3816508-483-725?v=638274381009230000&width=483&height=725&aspect=true', new: true },
+    { name: 'Chompa Corazon', image: 'https://http2.mlstatic.com/D_NQ_NP_643414-MPE70200834395_062023-O.webp', new: true },
+    { name: 'Falda Tableada Vane', image: 'https://http2.mlstatic.com/D_NQ_NP_733118-MPE71242138189_082023-O.webp', new: true }
   ];
 }
