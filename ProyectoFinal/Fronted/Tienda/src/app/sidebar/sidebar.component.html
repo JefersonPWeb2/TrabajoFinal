@@ -1,0 +1,17 @@
+<!-- app.component.html -->
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav class="sidenav" mode="side" opened="false">
+        <!-- Contenido del panel lateral -->
+        <p>Contenido del panel lateral</p>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <!-- Icono para abrir el panel lateral -->
+        <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+        </button>
+        <!-- Contenido principal -->
+        <div class="main-content">
+        <p>Contenido principal de la aplicación</p>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
