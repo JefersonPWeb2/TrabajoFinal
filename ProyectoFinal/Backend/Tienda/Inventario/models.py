@@ -1,10 +1,10 @@
 from django.db import models
 
 class Categoria(models.Model):
-    name = models.CharField(max_length=100)
+    nombre = models.CharField(max_length=100)
     descripcion = models.TextField(blank=True, null=True)
 class Producto(models.Model):
-    name = models.CharField(max_length=100)
+    nombre = models.CharField(max_length=100)
     descripcion = models.TextField()
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     cantidad = models.IntegerField()
