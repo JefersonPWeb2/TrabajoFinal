@@ -18,9 +18,12 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
+from cuentas.views import landing_page_view
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('Inventario.urls')),
+    path('inventario/', include('Inventario.urls')),
+    path('cuentas/', include('cuentas.urls')),
+    path('', landing_page_view, name='landing_page'),
 ]
 
 if settings.DEBUG:
