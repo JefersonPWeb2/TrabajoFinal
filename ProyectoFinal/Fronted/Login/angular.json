@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Tienda": {
+    "login": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/tienda",
+            "outputPath": "dist/login",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -27,10 +27,14 @@
               }
             ],
             "styles": [
-             
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -60,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Tienda:build:production"
+              "buildTarget": "login:build:production"
             },
             "development": {
-              "buildTarget": "Tienda:build:development"
+              "buildTarget": "login:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +90,6 @@
               }
             ],
             "styles": [
-              
               "src/styles.css"
             ],
             "scripts": []
@@ -96,6 +99,6 @@
     }
   },
   "cli": {
-    "analytics": "9033c3f6-2cb5-47b1-8b73-e5309b2b5b11"
+    "analytics": "55f78c3e-7b8d-473e-80cb-699b9d8d0712"
   }
 }
