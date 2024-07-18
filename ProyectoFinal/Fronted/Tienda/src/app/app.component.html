@@ -1,37 +1,8 @@
 <app-navbar></app-navbar>
 <div class="container">
   <div class="product-grid">
-    <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+    <app-product-card *ngFor="let product of products" [product]="product" class="product-card"></app-product-card>
   </div>
 </div>
-<footer>
-  <div class="container">
-    <div>
-      <img src="https://scontent.faqp2-1.fna.fbcdn.net/v/t39.30808-6/365753892_606529151618021_5070471229029035683_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeEZoVdpQYgK1OC78e48QAddn-TFOdiAguuf5MU52ICC6xlBPwjVfgcERLkKJ5ht29QX2qM4umhEojuyhm4niTZi&_nc_ohc=VG6-9qCg59YQ7kNvgFJ0i4-&_nc_ht=scontent.faqp2-1.fna&oh=00_AYBhOL91W9G5ulbOAYu2z4uSRGugY6LNYasgYN5ui18eFA&oe=6692BB7B" alt="ABYLU Store Logo" class="footer-logo" />
-      <p>Arequipa - Perú</p>
-    </div>
-    <div>
-      <h3>Información</h3>
-      <p>Envíos y cambios</p>
-      <p>Métodos de envío</p>
-      <p>Preguntas Frecuentes</p>
-    </div>
-    <div>
-      <h3>Empresa</h3>
-      <p>Términos y condiciones</p>
-      <p>Política de privacidad</p>
-      <p>Libro de reclamaciones</p>
-    </div>
-    <div>
-      <h3>Contáctanos</h3>
-      <p>907 915 516</p>
-    </div>
-    <div>
-      <h3>Síguenos</h3>
-      <p><a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook Icon" class="social-icon" /></a></p>
-      <p><a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram Icon" class="social-icon" /></a></p>
-      <p><a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="TikTok Icon" class="social-icon" /></a></p>
-    </div>
-  </div>
-  <p>© 2024 Abylu. Todos los derechos reservados.</p>
-</footer>
+<app-information></app-information>
+
