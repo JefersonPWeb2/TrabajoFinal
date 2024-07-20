@@ -10,4 +10,6 @@ urlpatterns = [
     path('productos/json/', views.producto_list_json, name='producto_list_json'),
     path('categoria/', views.categoria_lista, name='categoria_lista'),
     path('categoria/nuevo/', views.categoria_nueva, name='categoria_nueva'),
+    path('categoria/<int:pk>/delete/', views.categoria_delete, name='categoria_delete'),
+    path('categoria/<int:pk>/', views.categoria_detalle, name='categoria_detalle'),
 ]

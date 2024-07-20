@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
+from django.views.generic import DetailView
 from .models import Producto, Categoria
 from .forms import ProductoForm, CategoriaForm
 from django.http import JsonResponse
@@ -62,3 +63,14 @@ def categoria_nueva(request):
     else:
         form = CategoriaForm()
     return render(request, 'categoria_editar.html', {'form': form})
+
+def categoria_delete(request, pk):
+    categoria = get_object_or_404(Categoria, pk=pk)
+    if request.method == "POST":
+        categoria.delete()
+        return redirect(reverse('categoria_lista'))
+    return render(request, 'categoria_delete.html', {'categoria': categoria})
+
+def categoria_detalle(request, pk):
+    categoria = get_object_or_404(Categoria, pk=pk)
+    return render(request, 'categoria_detalle.html', {'categoria': categoria})
