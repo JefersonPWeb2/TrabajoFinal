@@ -19,10 +19,10 @@ export class AppComponent {
     { name: 'Chaleco', image: '../../../../assets/images/chaleco.jpeg', new: true, price: 120.00 },
     { name: 'Chompa Offshoulder', image: '../../../../assets/images/chompa-offshoulder.jpeg', new: true, price: 100.00 },
     { name: 'Chompa Corazon', image:'../../../../assets/images/chompa-corazon.jpeg', new: true, price: 90.00 },
-    { name: 'Abrigo Oversize Acubi', image: '../../../../assets/images/abrigos_1A.jpg', new: true, price: 80.00 },
-    { name: 'Anillo Estrella', image: '../../../../assets/images/anillos_1A.jpg', new: true, price: 80.00 },
-    { name: 'Arete Pride', image: '../../../../assets/images/aretes_1A.jpg', new: true, price: 80.00 },
-    { name: 'Cartera Vintage', image: '../../../../assets/images/cartera_1A.jpg', new: true, price: 80.00 },
+    { name: 'Abrigo Oversize Acubi', image: '../../../../assets/images/abrigos_1A.jpg', new: true, price: 120.00 },
+    { name: 'Anillo Estrella', image: '../../../../assets/images/anillos_1A.jpg', new: true, price: 30.00 },
+    { name: 'Arete Pride', image: '../../../../assets/images/aretes_1A.jpg', new: true, price: 20.00 },
+    { name: 'Cartera Vintage', image: '../../../../assets/images/cartera_1A.jpg', new: true, price: 100.00 },
   
   ];
 }
