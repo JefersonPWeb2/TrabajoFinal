@@ -10,11 +10,13 @@
 <body>
     <h1>Listado de Categorías</h1>
     <li>
-        <a href="{% url 'categoria_nueva' %}">Agregar Categoria</a>
+        <a href="{% url 'categoria_nueva' %}">Agregar Categoría</a>
     </li>
     <ul>
         {% for categoria in categorias %}
-            <li>{{ categoria.nombre }}</li>
+            <li>
+                <a href="{% url 'categoria_detalle' categoria.pk %}">{{ categoria.nombre }}</a>
+            </li>
         {% endfor %}
     </ul>
 </body>
