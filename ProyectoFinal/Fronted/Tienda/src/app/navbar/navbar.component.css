@@ -49,7 +49,7 @@ a, p {
 }
 
 .logo-img {
-  height: 100px;
+  height: 120px;
 }
 
 .menu-icon, .cart-icon {
@@ -89,4 +89,13 @@ a, p {
 
 .view-reviews:hover {
   text-decoration: underline;
+}
+
+.navbar-top p {
+  font-size: 18px; /* Ajusta el tamaño según lo necesites */
+}
+
+/* Aumentar el tamaño de la fuente para "Ver reseñas" */
+.view-reviews {
+  font-size: 18px; /* Ajusta el tamaño según lo necesites */
 }

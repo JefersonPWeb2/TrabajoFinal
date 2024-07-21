@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400&display=swap');
+
 .product-card {
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -6,6 +8,7 @@
   margin-bottom: 20px;
   background-color: #fff;
   transition: transform 0.2s;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif; /* Usa la fuente especificada */
 }
 
 .product-card:hover {
@@ -13,13 +16,17 @@
 }
 
 .product-image {
-  width: 100%;
-  height: auto;
+  width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+  height: 200px; /* Establece una altura fija para las imágenes */
+  object-fit: cover; /* Recorta la imagen para llenar el área especificada */
 }
+
+
 
 .product-details {
   padding: 10px;
   text-align: center;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif; /* Usa la fuente especificada */
 }
 
 .new-label {
@@ -33,9 +40,20 @@
   position: absolute;
   top: 10px;
   right: 10px;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
 .product-details h3 {
   margin: 10px 0 0;
   font-size: 18px;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif; /* Usa la fuente especificada */
+  font-weight: normal;
+  text-align: left; 
+  color: #000000;
+}
+
+.product-details p {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif; 
+  text-align: left;
+  color: #888;
 }
