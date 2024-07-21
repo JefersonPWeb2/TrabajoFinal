@@ -1,19 +1,49 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Productos</title>
     <link rel="stylesheet" href="{% static 'css/landing_page.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h1>Lista de Productos</h1>
+    <h1>Listado de Productos</h1>
     <ul>
         {% for producto in productos %}
-        <li>
-            <a href="{% url 'producto_detalle' producto.id %}">{{ producto.nombre }}</a>
-        </li>
+            <li>
+                <h2>{{ producto.nombre }}</h2>
+                <p>{{ producto.descripcion }}</p>
+                <p>Precio: {{ producto.precio }}</p>
+                <form action="{% url 'producto_delete' producto.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Eliminar</button>
+                </form>
+                <button class="agregar-carrito" data-producto-id="{{ producto.id }}">Agregar al Carrito</button>
+            </li>
         {% endfor %}
     </ul>
-    <a href="{% url 'producto_create' %}">Agregar Producto</a>
+    
+    <script>
+        $(document).ready(function(){
+            $('.agregar-carrito').click(function(){
+                var productoId = $(this).data('producto-id');
+                $.ajax({
+                    url: '{% url "agregar_al_carrito" 0 %}'.replace('0', productoId),
+                    type: 'POST',
+                    data: {
+                        'csrfmiddlewaretoken': '{{ csrf_token }}',
+                    },
+                    success: function(response) {
+                        alert(response.mensaje);
+                    },
+                    error: function(response) {
+                        alert('Error al agregar el producto al carrito.');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
