@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import RegistroForm, LoginForm
 
@@ -11,8 +12,12 @@ def registro_view(request):
     if request.method == "POST":
         form = RegistroForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('login')
+            user = form.save()
+            login(request, user)
+            messages.success(request, "Registro exitoso. Has sido registrado e iniciado sesión.")
+            return redirect('home')
+        else:
+            messages.error(request, "Error al registrar el usuario. Por favor, revisa los datos.")
     else:
         form = RegistroForm()
     return render(request, 'cuentas/registro.html', {'form': form})
@@ -37,4 +42,8 @@ def logout_view(request):
 
 @login_required
 def home_view(request):
-    return render(request, 'cuentas/home.html')
+    is_admin = request.user.groups.filter(name='Administradores').exists()
+    context = {
+        'is_admin': is_admin
+    }
+    return render(request, 'cuentas/home.html', context)
