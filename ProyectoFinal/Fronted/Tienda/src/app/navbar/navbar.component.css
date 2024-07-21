@@ -1,64 +1,92 @@
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.nav-left,
-.nav-right {
-  display: flex;
-  align-items: center;
+a, p {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
-.nav-left {
-  flex: 1;
+.navbar {
+  width: 100%;
 }
 
-.nav-center {
-  flex: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.navbar-top {
+  background-color: #f0f0f0;
+  text-align: center;
+  padding: 5px;
 }
 
-.nav-right {
-  flex: 1;
-  justify-content: flex-end;
-}
-
-.nav-logo {
-  height: 100px;
-}
-
-.store-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-left: 10px;
-}
-
-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  margin-left: 15px;
-}
-
-.nav-icon {
-  height: 30px;
-}
-
-.store-sesion {
-  margin-left: 5px;
+.navbar-top p {
+  margin: 0;
   font-size: 14px;
 }
 
-.stars {
+.navbar-main {
   display: flex;
   align-items: center;
-  color: black;
-  font-size: 18px;
-  margin-left: 10px;  
+  padding: 10px 20px;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+
+.navbar-content {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.logo-img {
+  height: 100px;
+}
+
+.menu-icon, .cart-icon {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.menu-icon {
+  margin-left: 30px; 
+}
+
+.cart-icon {
+  margin-right: 30px; 
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin: 0 20px; 
+}
+
+.stars {
+  font-size: 30px;
+  margin-right: 5px;
+}
+
+.rating-score {
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.view-reviews {
+  font-size: 14px;
+  color: red;
+  text-decoration: none;
+}
+
+.view-reviews:hover {
+  text-decoration: underline;
 }
