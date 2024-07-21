@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
-from django.views.generic import DetailView
-from .models import Producto, Categoria
-from .forms import ProductoForm, CategoriaForm
+from django.contrib.auth.decorators import login_required
+from .models import Producto, Categoria, CarritoItem, Carrito
+from .forms import ProductoForm, CategoriaForm, CartForm
 from django.http import JsonResponse
 from .serializers import ProductoSerializer
 from rest_framework.decorators import api_view
@@ -74,3 +74,31 @@ def categoria_delete(request, pk):
 def categoria_detalle(request, pk):
     categoria = get_object_or_404(Categoria, pk=pk)
     return render(request, 'categoria_detalle.html', {'categoria': categoria})
+
+@login_required
+def agregar_al_carrito(request, producto_id):
+    producto = get_object_or_404(Producto, id=producto_id)
+    carrito, created = Carrito.objects.get_or_create(usuario=request.user)
+    
+    if request.method == 'POST':
+        carrito_item, created = CarritoItem.objects.get_or_create(carrito=carrito, producto=producto)
+        if not created:
+            carrito_item.cantidad += 1
+        else:
+            carrito_item.cantidad = 1
+        carrito_item.save()
+        return JsonResponse({'status': 'ok', 'mensaje': 'Producto agregado al carrito'}, status=200)
+    
+    return JsonResponse({'status': 'error', 'mensaje': 'Método no permitido'}, status=405)
+
+@login_required
+def ver_carrito(request):
+    carrito, created = Carrito.objects.get_or_create(usuario=request.user)
+    items = CarritoItem.objects.filter(carrito=carrito)
+    return render(request, 'ver_carrito.html', {'carrito': carrito, 'items': items})
+
+@login_required
+def eliminar_del_carrito(request, item_id):
+    item = get_object_or_404(CarritoItem, id=item_id)
+    item.delete()
+    return redirect('ver_carrito')
