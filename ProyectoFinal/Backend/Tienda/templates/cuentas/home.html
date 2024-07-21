@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Tienda{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/landing_page.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'producto_lista' %}">Productos</a>
+        <a href="{% url 'ver_carrito' %}">Carrito</a>
+        {% if user.is_authenticated %}
+            {% if is_admin %}
+                <a href="{% url 'producto_create' %}">Agregar Producto</a>
+                <a href="{% url 'categoria_nueva' %}">Agregar Categoría</a>
+            {% endif %}
+            <a href="{% url 'logout' %}">Cerrar sesión</a>
+        {% else %}
+            <a href="{% url 'login' %}">Iniciar sesión</a>
+        {% endif %}
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

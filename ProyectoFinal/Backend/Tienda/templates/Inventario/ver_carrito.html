@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="{% static 'css/landing_page.css' %}">
+</head>
+<body>
+    <h1>Carrito de Compras</h1>
+    <ul>
+        {% for item in items %}
+            <li>
+                {{ item.cantidad }} x {{ item.producto.nombre }} - {{ item.producto.precio }}
+                <t><a href="{% url 'eliminar_del_carrito' item.id %}">Eliminar</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'producto_lista' %}">Seguir Comprando</a>
+</body>
+</html>
