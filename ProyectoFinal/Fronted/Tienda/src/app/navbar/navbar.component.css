@@ -49,7 +49,8 @@ a, p {
 }
 
 .logo-img {
-  height: 120px;
+  height: 100px;
+  margin-right: 250px;
 }
 
 .menu-icon, .cart-icon {
@@ -92,10 +93,9 @@ a, p {
 }
 
 .navbar-top p {
-  font-size: 18px; /* Ajusta el tamaño según lo necesites */
+  font-size: 18px;
 }
 
-/* Aumentar el tamaño de la fuente para "Ver reseñas" */
 .view-reviews {
-  font-size: 18px; /* Ajusta el tamaño según lo necesites */
+  font-size: 18px;
 }
