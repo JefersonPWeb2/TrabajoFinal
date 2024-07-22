@@ -15,6 +15,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 })
 export class AppComponent {
   title = 'abylu-store';
+  isSidebarOpen = false; 
   products = [
     { name: 'Cardigan Rayas', image: '../../../../assets/images/cardigan-rayas.jpeg', new: true, price: 150.00 },
     { name: 'Chaleco', image: '../../../../assets/images/chaleco.jpeg', new: true, price: 120.00 },
@@ -26,5 +27,8 @@ export class AppComponent {
     { name: 'Cartera Vintage', image: '../../../../assets/images/cartera_1A.jpg', new: true, price: 100.00 },
   
   ];
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
 }
 

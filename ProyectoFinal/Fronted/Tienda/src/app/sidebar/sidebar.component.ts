@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,9 +9,5 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
-  isOpen = false;
-
-  toggleSidebar() {
-    this.isOpen = !this.isOpen;
-  }
+  @Input() isOpen = false;
 }
