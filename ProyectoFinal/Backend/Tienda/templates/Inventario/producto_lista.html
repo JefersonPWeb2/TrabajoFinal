@@ -30,7 +30,7 @@
                     <p>{{ producto.descripcion }}</p>
                     <p>Precio: {{ producto.precio }}</p>
                     {% if producto.imagen %}
-                        <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
+                        <center><img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}"></center>
                     {% endif %}
                     <a href="{% url 'producto_detalle' producto.id %}">Ver detalles</a>
                     {% if user.is_authenticated and not is_admin %}
