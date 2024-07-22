@@ -1,171 +1,150 @@
+/* Variables para colores y fuentes */
+:root {
+    --primary-color: #000000;
+    --secondary-color: #333333;
+    --text-color: #000000;
+    --background-color: #f0f0f0;
+    --box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos generales */
 body {
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #6B73FF 10%, #000DFF 100%);
-    color: #fff;
-    margin: 0;
-    padding: 0;
+    font-family: 'Courier New', monospace;
+    background-color: var(--background-color);
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    text-align: center;
+    margin: 0;
+    color: var(--text-color);
+}
+
+.form-container {
+    background-color: white;
+    padding: 40px;
+    border: 2px solid black;
+    box-shadow: var(--box-shadow);
+    width: 350px;
+    max-width: 90%;
+    transition: transform 0.3s ease;
+}
+
+.form-container:hover {
+    transform: translateY(-5px);
 }
 
 h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-a {
-    text-decoration: none;
+/* Estilos para los campos del formulario */
+form p, .form-group {
+    margin-bottom: 20px;
 }
 
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Courier New', monospace;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+}
+
+/* Estilo para el botón */
 button {
-    background-color: #ff5722;
-    color: #fff;
-    border: none;
-    padding: 15px 30px;
-    margin: 10px;
-    font-size: 1rem;
-    border-radius: 25px;
+    width: 100%;
+    padding: 14px;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 button:hover {
-    background-color: #e64a19;
-    transform: scale(1.05);
-}
-
-nav {
-    background-color: #333;
+    background-color: black;
     color: white;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-right: 15px;
-    padding: 5px 10px;
-    transition: background-color 0.3s ease;
+button:active {
+    transform: translateY(2px);
 }
 
-nav a:hover {
-    background-color: #555;
-    border-radius: 5px;
-}
-
-nav a:last-child {
-    margin-right: 0;
-}
-
-/* Estilo del contenedor principal */
-main {
-    padding: 20px;
-    max-width: 1200px;
-    margin: auto;
-}
-
-/* Estilo del título principal */
-main h1 {
-    text-align: center;
-    color: #333;
-}
-
-/* Estilo de la lista de productos */
-ul {
+/* Estilos para mensajes de error */
+.errorlist, .error-message {
+    color: #000000;
     list-style-type: none;
     padding: 0;
+    margin-top: 5px;
+    font-size: 14px;
+    font-style: italic;
 }
 
-li {
-    background-color: white;
-    margin: 20px 0;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* Enlaces para registro y login */
+.form-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
 }
 
-li h2 {
-    margin-top: 0;
-    color: #333;
-}
-
-li p {
-    color: #666;
-}
-
-li img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 10px 0;
-}
-
-li a {
-    display: inline-block;
-    margin-right: 10px;
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
+.form-link a {
+    color: var(--secondary-color);
     text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    font-weight: 600;
 }
 
-li a:hover {
-    background-color: #0056b3;
+.form-link a:hover {
+    text-decoration: underline;
 }
 
-li a:last-child {
-    margin-right: 0;
+/* Animación de carga */
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
-li a.agregar-al-carrito {
-    background-color: #28a745;
+button:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    animation: blink 1.5s infinite;
 }
 
-li a.agregar-al-carrito:hover {
-    background-color: #218838;
-}
-
-li a.editar,
-li a.eliminar {
-    background-color: #ffc107;
-}
-
-li a.editar:hover,
-li a.eliminar:hover {
-    background-color: #e0a800;
-}
-
-li a.eliminar {
-    background-color: #dc3545;
-}
-
-li a.eliminar:hover {
-    background-color: #c82333;
-}
-
-/* Estilo para dispositivos móviles */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-    }
-
-    nav a {
-        margin: 5px 0;
-    }
-
-    main {
-        padding: 10px;
-    }
-
-    li {
-        padding: 15px;
+/* Responsive design */
+@media (max-width: 400px) {
+    .form-container {
+        width: 100%;
+        padding: 30px;
+        border: none;
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
     }
 }

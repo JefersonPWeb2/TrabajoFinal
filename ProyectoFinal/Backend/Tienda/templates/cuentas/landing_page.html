@@ -1,15 +1,74 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Inicio</title>
+    <title>Abylu Administrador</title>
     <link rel="stylesheet" href="{% static '/css/landing_page.css' %}">
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #000000;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border: 2px solid black;
+            box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #000000;
+            margin-bottom: 30px;
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 14px 20px;
+            background-color: white;
+            color: black;
+            border: 2px solid black;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Courier New', monospace;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        button:hover {
+            background-color: black;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    <h2>Bienvenido a Nuestra Aplicación</h2>
-    <a href="{% url 'login' %}"><button>Iniciar Sesión</button></a>
-    <a href="{% url 'registro' %}"><button>Registrarse</button></a>
+    <div class="container">
+        <h2>Bienvenido/a</h2>
+        <div class="button-container">
+            <a href="{% url 'login' %}"><button>Iniciar Sesión</button></a>
+            <a href="{% url 'registro' %}"><button>Registrarse</button></a>
+        </div>
+    </div>
 </body>
 </html>

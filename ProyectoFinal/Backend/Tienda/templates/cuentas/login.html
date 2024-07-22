@@ -1,16 +1,28 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Login</title>
-    <link rel="stylesheet" href="{% static '/css/landing_page.css' %}"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Abylu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/landing_page.css' %}">
 </head>
 <body>
-    <h2>Login</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Iniciar Sesión</button>
-    </form>
+    <div class="form-container">
+        <h2>Bienvenido a Abylu</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" id="loginButton">Iniciar Sesión</button>
+        </form>
+        <p class="form-link">¿No tienes una cuenta? <a href="{% url 'registro' %}">Regístrate aquí</a></p>
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function() {
+            document.getElementById('loginButton').disabled = true;
+        });
+    </script>
 </body>
 </html>
