@@ -4,11 +4,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { InformationComponent } from './information/information.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, ProductCardComponent, CommonModule, InformationComponent],
+  imports: [RouterOutlet, NavbarComponent, ProductCardComponent, CommonModule, InformationComponent, SidebarComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -26,3 +27,4 @@ export class AppComponent {
   
   ];
 }
+
