@@ -10,4 +10,8 @@ import { CommonModule } from '@angular/common';
 })
 export class SidebarComponent {
   @Input() isOpen = false;
+
+  toggleSidebar() {
+    this.isOpen = !this.isOpen;
+  }
 }
