@@ -1,5 +1,5 @@
 <app-navbar (sidebarToggle)="toggleSidebar()"></app-navbar>
-<app-sidebar [isOpen]="isSidebarOpen"></app-sidebar>
+<app-sidebar [isOpen]="isSidebarOpen" (closeRequest)="closeSidebarIfOpen()"></app-sidebar>
 <div class="main-content" (click)="closeSidebarIfOpen()">
   <div class="container">
     <div class="product-grid">
