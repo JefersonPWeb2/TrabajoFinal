@@ -7,14 +7,13 @@
 </head>
 <body>
     <h1>{{ producto.nombre }}</h1>
-    <p>{{ producto.descripcion }}</p>
-    <p>{{ producto.precio }}</p>
-    <p>{{ producto.categoria.name }}</p>
-    <a href="{% url 'producto_update' producto.id %}">Editar</a>
-    <form action="{% url 'producto_delete' producto.id %}" method="post">
-        {% csrf_token %}
-        <button type="submit">Eliminar</button>
-    </form>
+    <p>Descripción: {{ producto.descripcion }}</p>
+    <p>Precio: {{ producto.precio }}</p>
+    <p>Categoria: {{ producto.categoria.nombre }}</p>
+    {% if is_admin %}
+        <a href="{% url 'producto_update' producto.id %}">Editar</a>
+        <a href="{% url 'producto_delete' producto.id %}">Eliminar</a>
+    {% endif %}
     <a href="{% url 'producto_lista' %}">Volver al listado</a>
 </body>
 </html>
