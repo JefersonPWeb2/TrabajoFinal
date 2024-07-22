@@ -9,20 +9,16 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
-  private _isOpen = false;
 
-  @Input()
-  set isOpen(value: boolean) {
-    this._isOpen = value;
-  }
-
-  get isOpen(): boolean {
-    return this._isOpen;
-  }
-
+  @Input() isOpen = false;
   @Output() closeRequest = new EventEmitter<void>();
+  @Output() categorySelected = new EventEmitter<string>();
 
   toggleSidebar() {
     this.closeRequest.emit();
+  }
+
+  selectCategory(category: string) {
+    this.categorySelected.emit(category);
   }
 }

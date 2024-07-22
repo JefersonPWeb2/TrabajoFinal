@@ -1,28 +1,28 @@
 <div class="sidebar" [class.open]="isOpen" (click)="$event.stopPropagation()">
-    <div class="sidebar-header">
-      <button (click)="toggleSidebar()" class="close-button">&times;</button>
-      <img src="../../assets/images/Logo3.png" class="category-image">
-      <div class="search-bar">
-        <input type="text" placeholder="Buscar..." class="search-input">
-        <button class="search-button">🔍</button>
-      </div>
-    </div>
-    <div class="sidebar-content">
-      <h3>Categorías</h3>
-      <ul>
-        <li>Blusas</li>
-        <li>Chalecos</li>
-        <li>Chompas</li>
-        <li>Faldas</li>
-        <li>Accesorios</li>
-        <li>Maquillaje</li>
-      </ul>
-      
-      <h3>Menú de Usuario</h3>
-      <ul>
-        <li>Iniciar Sesión / Cerrar Sesión</li>
-        <li>Carrito de Compras</li>
-        <li>Lista de Favoritos</li>
-      </ul>
+  <div class="sidebar-header">
+    <button (click)="toggleSidebar()" class="close-button">&times;</button>
+    <img src="../../assets/images/Logo3.png" class="category-image">
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar..." class="search-input">
+      <button class="search-button">🔍</button>
     </div>
   </div>
+  <div class="sidebar-content">
+    <h3>Categorías</h3>
+    <ul>
+      <li (click)="selectCategory('Blusas')">Blusas</li>
+      <li (click)="selectCategory('Chalecos')">Chalecos</li>
+      <li (click)="selectCategory('Chompas')">Chompas</li>
+      <li (click)="selectCategory('Faldas')">Faldas</li>
+      <li (click)="selectCategory('Accesorios')">Accesorios</li>
+      <li (click)="selectCategory('Maquillaje')">Maquillaje</li>
+    </ul>
+    
+    <h3>Menú de Usuario</h3>
+    <ul>
+      <li>Iniciar Sesión / Cerrar Sesión</li>
+      <li>Carrito de Compras</li>
+      <li>Lista de Favoritos</li>
+    </ul>
+  </div>
+</div>
