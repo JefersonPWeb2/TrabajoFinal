@@ -1,22 +1,28 @@
 <div class="sidebar" [class.open]="isOpen" (click)="$event.stopPropagation()">
-    <button (click)="toggleSidebar()" class="close-button">&times;</button>
-    <img src="../../assets/images/Logo2.png" class="category-image">
-    <div class="search-bar">
+    <div class="sidebar-header">
+      <button (click)="toggleSidebar()" class="close-button">&times;</button>
+      <img src="../../assets/images/Logo2.png" class="category-image">
+      <div class="search-bar">
         <input type="text" placeholder="Buscar..." class="search-input">
         <button class="search-button">🔍</button>
+      </div>
     </div>
-    <h3>Categorías</h3>
-    <ul>
-        <li>Pantalones</li>
+    <div class="sidebar-content">
+      <h3>Categorías</h3>
+      <ul>
+        <li>Blusas</li>
+        <li>Chalecos</li>
+        <li>Chompas</li>
         <li>Faldas</li>
         <li>Accesorios</li>
         <li>Maquillaje</li>
-    </ul>
-    
-    <h3>Menú de Usuario</h3>
-    <ul>
+      </ul>
+      
+      <h3>Menú de Usuario</h3>
+      <ul>
         <li>Iniciar Sesión / Cerrar Sesión</li>
         <li>Carrito de Compras</li>
         <li>Lista de Favoritos</li>
-    </ul>
-</div>
+      </ul>
+    </div>
+  </div>
