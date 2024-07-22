@@ -1,6 +1,5 @@
-<div class="sidebar" [class.open]="isOpen">
-    <button (click)="toggleSidebar()">Cerrar</button>
-    
+<div class="sidebar" [class.open]="isOpen" (click)="$event.stopPropagation()">    
+    <button (click)="toggleSidebar()">X</button>
     <h3>Categorías</h3>
     <ul>
         <li>Pantalones</li>

@@ -30,5 +30,10 @@ export class AppComponent {
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
+  closeSidebarIfOpen() {
+    if (this.isSidebarOpen) {
+      this.isSidebarOpen = false;
+    }
+  }
 }
 
