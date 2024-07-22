@@ -19,7 +19,7 @@ export class AppComponent {
   selectedCategory: string | null = null;
 
   products = [
-    { category: 'Chompas', name: 'Cardigan Rayas', image: '../../../../assets/images/cardigan-rayas.jpeg', new: true, price: 150.00,},
+    { category: 'Blusas', name: 'Cardigan Rayas', image: '../../../../assets/images/cardigan-rayas.jpeg', new: true, price: 150.00,},
     { category: 'Chalecos',name: 'Chaleco', image: '../../../../assets/images/chaleco.jpeg', new: true, price: 120.00,},
     { category: 'Chompas', name: 'Chompa Offshoulder', image: '../../../../assets/images/chompa-offshoulder.jpeg', new: true, price: 100.00,},
     { category: 'Chompas', name: 'Chompa Corazon', image:'../../../../assets/images/chompa-corazon.jpeg', new: true, price: 90.00,},
