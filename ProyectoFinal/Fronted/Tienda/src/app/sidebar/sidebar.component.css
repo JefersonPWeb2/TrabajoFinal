@@ -1,10 +1,11 @@
 .sidebar {
+  font-family: 'Bellefair', serif;
   position: fixed;
   top: 0;
   left: -250px;
   width: 250px;
   height: 100%;
-  background-color: #f8f9fa;
+  background-color: #ffff;
   transition: 0.3s;
   padding: 20px;
   z-index: 1000;
@@ -12,4 +13,47 @@
 
 .sidebar.open {
   left: 0;
+}
+
+.category-image {
+  width: 100%;
+  max-height: 200px; /* Ajusta según necesites */
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  flex-grow: 1;
+  padding: 10px;
+  font-family: 'Bellefair', serif;
+  border: 1px solid #ccc;
+  border-right: none;
+}
+
+.search-button {
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+h3 {
+  font-family: 'Bellefair', serif;
+  margin-top: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  font-family: 'Bellefair', serif;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
 }
