@@ -5,17 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Productos</title>
-    <link rel="stylesheet" href="{% static 'css/landing_page.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
 </head>
 <body>
     <nav>
         <a href="{% url 'producto_lista' %}">Productos</a>
+        <a href="{% url 'categoria_lista' %}">Categorias</a>
         <a href="{% url 'ver_carrito' %}">Carrito</a>
         {% if user.is_authenticated %}
             {% if is_admin %}
                 <a href="{% url 'producto_create' %}">Agregar Producto</a>
                 <a href="{% url 'categoria_nueva' %}">Agregar Categoría</a>
             {% endif %}
+            Hola, {{ user.username }}
             <a href="{% url 'logout' %}">Cerrar sesión</a>
         {% else %}
             <a href="{% url 'login' %}">Iniciar sesión</a>
@@ -27,14 +29,16 @@
             {% for producto in productos %}
                 <li>
                     <h2>{{ producto.nombre }}</h2>
-                    <p>{{ producto.descripcion }}</p>
                     <p>Precio: {{ producto.precio }}</p>
                     {% if producto.imagen %}
                         <center><img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}"></center>
                     {% endif %}
                     <a href="{% url 'producto_detalle' producto.id %}">Ver detalles</a>
                     {% if user.is_authenticated and not is_admin %}
-                        <a href="{% url 'agregar_al_carrito' producto.id %}">Agregar al carrito</a>
+                        <form action="{% url 'agregar_al_carrito' producto.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Agregar al carrito</button>
+                        </form>
                     {% endif %}
                     {% if is_admin %}
                         <a href="{% url 'producto_update' producto.id %}">Editar</a>

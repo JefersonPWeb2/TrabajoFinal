@@ -5,16 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle de Categoría</title>
-    <link rel="stylesheet" href="{% static 'css/landing_page.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
 </head>
 <body>
+    <nav>
+        <a href="{% url 'producto_lista' %}">Productos</a>
+        <a href="{% url 'categoria_lista' %}">Categorias</a>
+        <a href="{% url 'ver_carrito' %}">Carrito</a>
+        {% if user.is_authenticated %}
+            {% if is_admin %}
+                <a href="{% url 'producto_create' %}">Agregar Producto</a>
+                <a href="{% url 'categoria_nueva' %}">Agregar Categoría</a>
+            {% endif %}
+            <a href="{% url 'logout' %}">Cerrar sesión</a>
+        {% else %}
+            <a href="{% url 'login' %}">Iniciar sesión</a>
+        {% endif %}
+    </nav>
     <h1>Detalle de Categoría</h1>
     <h2>{{ categoria.nombre }}</h2>
     <h2>{{ categoria.descripcion }}</h2>
-    <form action="{% url 'categoria_delete' categoria.id %}" method="post">
-        {% csrf_token %}
-        <button type="submit">Eliminar</button>
-    </form>
+    {% if is_admin %}
+        <form action="{% url 'categoria_delete' categoria.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Eliminar</button>
+        </form>
+    {% endif %}
     <a href="{% url 'categoria_lista' %}">Volver al Listado</a>
 </body>
 </html>
