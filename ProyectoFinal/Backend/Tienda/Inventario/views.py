@@ -7,6 +7,9 @@ from .forms import ProductoForm, CategoriaForm, CartForm
 from django.http import JsonResponse
 from .serializers import ProductoSerializer, CategoriaSerializer
 from rest_framework.decorators import api_view
+from rest_framework import viewsets, status
+from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.response import Response
 
 def producto_lista(request):
     productos = Producto.objects.all()
@@ -16,6 +19,23 @@ def producto_detalle(request, pk):
     producto = get_object_or_404(Producto, pk=pk)
     return render(request, 'Inventario/producto_detalle.html', {'producto': producto})
 
+class CategoriaViewSet(viewsets.ModelViewSet):
+    queryset = Categoria.objects.all()
+    serializer_class = CategoriaSerializer
+
+class ProductoViewSet(viewsets.ModelViewSet):
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer
+    parser_classes = (MultiPartParser, FormParser)
+
+    def create(self, request, *args, **kwargs):
+        print(request.data)  # Añadir para depurar datos recibidos
+        return super().create(request, *args, **kwargs)
+
+    def update(self, request, *args, **kwargs):
+        print(request.data)  # Añadir para depurar datos recibidos
+        return super().update(request, *args, **kwargs)
+    
 @login_required
 @usuario_es_administrador
 def producto_create(request):
@@ -61,6 +81,23 @@ def categoria_list_json(request):
     categorias = Categoria.objects.all()
     serializer = CategoriaSerializer(categorias, many=True)
     return JsonResponse(serializer.data, safe=False)
+
+@api_view(['POST'])
+def crear_producto(request):
+    serializer = ProductoSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['PUT'])
+def actualizar_producto(request, pk):
+    producto = get_object_or_404(Producto, pk=pk)
+    serializer = ProductoSerializer(producto, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 def categoria_lista(request):
     categorias = Categoria.objects.all()
