@@ -8,12 +8,14 @@ import { ProductoFormComponent } from './Components/producto-form/producto-form.
 import { ProductoListComponent } from './Components/producto-list/producto-list.component';
 import { ProductoService } from './Services/producto.service';
 import { CategoriaService } from './Services/categoria.service';
+import { SidebarCategoriasComponent } from './Components/sidebar-categorias/sidebar-categorias.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductoFormComponent,
     ProductoListComponent,
+    SidebarCategoriasComponent,
   ],
   imports: [
     BrowserModule,
