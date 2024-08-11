@@ -31,4 +31,13 @@ export class ProductoListComponent implements OnInit {
       this.productos = this.productos.filter(producto => producto.id !== id);
     });
   }
+  hoverEffect(event: MouseEvent) {
+    const element = event.currentTarget as HTMLElement;
+    element.style.transform = 'scale(1.05)';
+  }
+
+  removeHoverEffect(event: MouseEvent) {
+    const element = event.currentTarget as HTMLElement;
+    element.style.transform = 'scale(1)';
+  }
 }
